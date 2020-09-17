@@ -1,13 +1,61 @@
+
+<p>---------------------------------Structural Directives------------------------------------</p>
+
+<p>**ngFor**</p>
+<tr *ngFor="let customer of customerList; let i=index; let o=odd; let e=even;"
+  [ngClass]= "{ odd: o, even: e }">
+  <td>{{i}}</td>&nbsp;
+  <td>{{customer.name}}</td>&nbsp;
+  <td>{{customer.city}}</td>&nbsp;
+  <td>{{customer.state}}</td>
+</tr>
+
+<p>**ngIf**</p>
+<div *ngFor="let customer of customerList">
+  <div *ngIf= "customer.state == 'NJ'">
+    <span>{{customer.name}} </span>
+    <span>{{customer.city}} </span>
+   <span>{{customer.state}}</span>
+  </div>
+</div>
+
+<p>**ngSwitch**</p>
+<div *ngFor="let customer of customerList">
+  <div [ngSwitch]="customer.state">
+    <div *ngSwitchCase="'NJ'">Customer from New Jersey</div>
+    <div *ngSwitchCase="'NY'">Customer from New York</div>
+  </div>
+</div>
+
+<p>---------------------------------Attribute Directives------------------------------------</p>
+
+<p>**ngModel**</p>
+Enter your name: <input type="text" [(ngModel)]="attrName"><br>
+You have entered {{attrName}}<br>
+
+<p>**ngClass**</p>
+<div [ngClass]="'red size20'">
+  Red text with size 20px
+</div>
+
+<p>**ngStyle**</p>
+<div [ngStyle]="{'color':'blue', 'font-size':'24px', 'font-weight':'bold'}">
+  Text implementing ngStyle
+</div>
+
+
+<p>---------------------------------Day 1 Assignment------------------------------------</p>
+
 <p>**Interpolation binding**</p>
-<div><span>name: </span>{{details.name | uppercase}}</div><br>
+<div><span>name: </span>{{details.dname | uppercase}}</div><br>
 <div><span>age: </span>{{details.age}}</div>
 
 <p>**Property binding**</p>
-<p [innerHTML]="details.name"></p>
+<p [innerHTML]="details.dname"></p>
 <p [innerHTML]="details.age"></p>
 
 <p>**Two way binding**</p>
-<div><label>name: <input [(ngModel)]="details.name" placeholder="name"></label></div><br>
+<div><label>name: <input [(ngModel)]="details.dname" placeholder="name"></label></div><br>
 <div><label>age: <input [(ngModel)]="details.age" placeholder="age"></label></div>
 
 <p>**Event binding**</p>

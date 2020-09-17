@@ -1,4 +1,4 @@
 export class Details{
-  name: string;
+  dname: string;
   age: number;
 }
